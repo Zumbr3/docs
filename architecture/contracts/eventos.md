@@ -97,3 +97,19 @@ Nº de partições e retenção: justificativas em ADR-003.
         }
     }
 }
+
+### 3.2 transaction.flagged (tópico: transaction.flagged):
+
+**Envelope: ver §1**
+
+| Campo                   | Tipo                                            | Obrig. | Descrição                                                   |
+|-------------------------|-------------------------------------------------|--------|-------------------------------------------------------------|
+| transactionId           | string (UUID)                                   | sim    | id da transação                                             |
+| accountId               | string (UUID)                                   | sim    | id da conta que fez a transação                             |
+| ipAddress               | string                                          | sim    | Ip que realizou a transferência                             |
+| geoLocation             | {"lat": 0.0, "lon": 0.0}                        | sim    | Localização do dispositivo                                  |
+| transactionDate         | string (ISO-8601 UTC)                           | sim    | Momento que a transação ocorreu                             |
+| amount                  | string (decimal)                                | sim    | Valor monetário da transação                                |
+| score                   | string (decimal)                                | sim    | Valor calculado pelo scoring-service como nota de transação |
+| accountDetails          | {"name": "", "account":"", "createdAt": ""}     | sim    | Dados da conta que realizou a transação                     |e": "", "account":"", "createdAt": ""}| sim    | Dados da conta que realizou a transação      |
+| triggeredRule           | {"name": "", "partialScore": 0.0, "weight": ""} | sim    | Regra de fraude que disparou a transação |
