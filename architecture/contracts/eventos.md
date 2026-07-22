@@ -113,3 +113,24 @@ Nº de partições e retenção: justificativas em ADR-003.
 | score                   | string (decimal)                                | sim    | Valor calculado pelo scoring-service como nota de transação |
 | accountDetails          | {"name": "", "account":"", "createdAt": ""}     | sim    | Dados da conta que realizou a transação                     |e": "", "account":"", "createdAt": ""}| sim    | Dados da conta que realizou a transação      |
 | triggeredRule           | {"name": "", "partialScore": 0.0, "weight": ""} | sim    | Regra de fraude que disparou a transação |
+
+### 3.3 transaction.approved (tópico: transaction.approved)
+**Envelope: ver §1**
+
+| Campo                | Tipo                                       | Obrig. | Descrição                                    |
+|----------------------|--------------------------------------------|--------|----------------------------------------------|
+| transactionId        | string (UUID)                              | sim    | id da transação                              |
+| score                | number(0-100)                              | sim    | score gerado pelo scoring service após regras|
+
+**Exemplo:**
+{
+    "eventId": "9b2f-...",
+    "eventType": "transaction.approved",
+    "eventVersion": 1,
+    "occurredAt": "2026-07-07T14:00:00Z",
+    "producer": "scoring-service",
+    "data": {
+        "transactionId": "c41a-...",
+        "score": 1.0
+    }
+}
